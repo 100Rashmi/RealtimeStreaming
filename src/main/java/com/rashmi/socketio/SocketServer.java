@@ -13,6 +13,7 @@ public class SocketServer {
        config.setPort(9050);
 
        server = new SocketIOServer(config);
+       server.start();
 
    }
 

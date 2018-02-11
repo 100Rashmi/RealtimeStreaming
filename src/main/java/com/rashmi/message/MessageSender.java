@@ -24,9 +24,16 @@ public class MessageSender {
             System.out.println(st);
             ProducerRecord<String, String> pr = new ProducerRecord<String, String>(topic, "client1", st);
             producer.getProducer().send(pr);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
 
         }
 
     }
+
 
 }
