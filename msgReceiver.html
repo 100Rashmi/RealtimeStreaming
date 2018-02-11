@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script>
+        const socket = io('http://localhost:9050');
+
+        socket.on('connect',function() {
+          console.log('Client has connected to the server!');
+          socket.emit("clientName", "client1");
+        });
+
+
+        socket.on('progressData', (data) => {
+        console.log(data);
+         document.getElementById("rtdata").innerHTML += data+"<br>";
+        });
+
+
+
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="rtdata"> </div>
+</body>
+</html>
